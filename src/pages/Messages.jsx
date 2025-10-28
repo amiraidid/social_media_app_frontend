@@ -34,12 +34,6 @@ export default function Messages({ selectedFriend }) {
       }
     });
 
-    newSocket.on("disconnect", () => {
-      // console.log("❌ Disconnected from socket server");
-      if (currentUserId) {
-        newSocket.emit("disconnect", currentUserId);
-      }
-    });
 
     return () => newSocket.disconnect();
   }, [currentUserId]);
